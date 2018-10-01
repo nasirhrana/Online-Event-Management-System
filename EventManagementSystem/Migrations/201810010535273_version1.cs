@@ -3,10 +3,30 @@ namespace EventManagementSystem.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class version1 : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Events",
+                c => new
+                    {
+                        EventId = c.Int(nullable: false, identity: true),
+                        UserId = c.Int(nullable: false),
+                        EventName = c.String(nullable: false),
+                        EventVenue = c.String(nullable: false),
+                        OrganizerEmail = c.String(nullable: false),
+                        ContactNo = c.String(nullable: false),
+                        EventDate = c.DateTime(nullable: false),
+                        StartTime = c.Double(nullable: false),
+                        EndTime = c.Double(nullable: false),
+                        CreatedBy = c.String(),
+                        TimeOfCreation = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.EventId)
+                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
+            
             CreateTable(
                 "dbo.Users",
                 c => new
@@ -36,10 +56,13 @@ namespace EventManagementSystem.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Users", "UserTypeId", "dbo.UserTypes");
+            DropForeignKey("dbo.Events", "UserId", "dbo.Users");
             DropIndex("dbo.Users", new[] { "UserTypeId" });
             DropIndex("dbo.Users", new[] { "Email" });
+            DropIndex("dbo.Events", new[] { "UserId" });
             DropTable("dbo.UserTypes");
             DropTable("dbo.Users");
+            DropTable("dbo.Events");
         }
     }
 }

@@ -160,16 +160,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201809290527116_initial.cs" />
-    <Compile Include="Migrations\201809290527116_initial.Designer.cs">
-      <DependentUpon>201809290527116_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201810010535273_version1.cs" />
+    <Compile Include="Migrations\201810010535273_version1.Designer.cs">
+      <DependentUpon>201810010535273_version1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EMSDbContext.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -211,6 +213,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\User.cshtml" />
     <Content Include="Views\User\CreateUser.cshtml" />
+    <Content Include="Views\Shared\Event.cshtml" />
+    <Content Include="Views\Event\CreateEvent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -223,8 +227,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201809290527116_initial.resx">
-      <DependentUpon>201809290527116_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810010535273_version1.resx">
+      <DependentUpon>201810010535273_version1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

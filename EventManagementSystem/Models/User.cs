@@ -22,7 +22,6 @@ namespace EventManagementSystem.Models
         [Remote("IsEmpIdExist", "User", ErrorMessage = "This Email already exists!")]
         public string Email { get; set; }
 
-
         [Required(ErrorMessage = "Please Select  User Type ")]
         [DisplayName("User Type ID")]
         public int UserTypeId { get; set; }
@@ -36,5 +35,6 @@ namespace EventManagementSystem.Models
         public string ConfirmPassword { get; set; }
 
         public UserType UserType { get; set; }
+        public List<Event> Events { get; set; } 
     }
 }

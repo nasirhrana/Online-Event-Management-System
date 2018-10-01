@@ -50,8 +50,7 @@ C:\Users\nasir\Desktop\EMS\EventManagementSystem\EventManagementSystem\bin\Micro
 C:\Users\nasir\Desktop\EMS\EventManagementSystem\EventManagementSystem\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\nasir\Desktop\EMS\EventManagementSystem\EventManagementSystem\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\nasir\Desktop\EMS\EventManagementSystem\EventManagementSystem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\nasir\Desktop\EMS\EventManagementSystem\EventManagementSystem\obj\Debug\EventManagementSystem.csprojResolveAssemblyReference.cache
 C:\Users\nasir\Desktop\EMS\EventManagementSystem\EventManagementSystem\obj\Debug\EventManagementSystem.dll
 C:\Users\nasir\Desktop\EMS\EventManagementSystem\EventManagementSystem\obj\Debug\EventManagementSystem.pdb
-C:\Users\nasir\Desktop\EMS\EventManagementSystem\EventManagementSystem\obj\Debug\EventManagementSystem.Migrations.initial.resources
+C:\Users\nasir\Desktop\EMS\EventManagementSystem\EventManagementSystem\obj\Debug\EventManagementSystem.Migrations.version1.resources
 C:\Users\nasir\Desktop\EMS\EventManagementSystem\EventManagementSystem\obj\Debug\EventManagementSystem.csproj.GenerateResource.Cache
