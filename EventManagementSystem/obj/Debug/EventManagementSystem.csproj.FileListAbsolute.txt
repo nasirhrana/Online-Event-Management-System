@@ -54,7 +54,6 @@ C:\Users\nasir\Desktop\EMS\EventManagementSystem\EventManagementSystem\obj\Debug
 C:\Users\nasir\Desktop\EMS\EventManagementSystem\EventManagementSystem\obj\Debug\EventManagementSystem.pdb
 C:\Users\nasir\Desktop\EMS\EventManagementSystem\EventManagementSystem\obj\Debug\EventManagementSystem.Migrations.version1.resources
 C:\Users\nasir\Desktop\EMS\EventManagementSystem\EventManagementSystem\obj\Debug\EventManagementSystem.csproj.GenerateResource.Cache
-C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\obj\Debug\EventManagementSystem.csprojResolveAssemblyReference.cache
 C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\bin\EventManagementSystem.dll.config
 C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\bin\EventManagementSystem.dll
 C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\bin\EventManagementSystem.pdb
@@ -111,3 +110,4 @@ C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\
 C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\obj\Debug\EventManagementSystem.pdb
 C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\obj\Debug\EventManagementSystem.Migrations.version1.resources
 C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\obj\Debug\EventManagementSystem.csproj.GenerateResource.Cache
+C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\obj\Debug\EventManagementSystem.csprojResolveAssemblyReference.cache

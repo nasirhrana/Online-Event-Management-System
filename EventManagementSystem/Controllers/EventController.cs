@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EventManagementSystem.Models;
+using EventManagementSystem.ViewModel;
 
 namespace EventManagementSystem.Controllers
 {
@@ -56,6 +57,17 @@ namespace EventManagementSystem.Controllers
 
 
             return Json(msg, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ShowDateWiseEvent()
+        {
+            return View();
+        }
+        public ActionResult ShowDateWiseEventByRange(DateTime frmDate, DateTime edDate)
+        {
+            var eventList = dbContext.Events.Where(x => x.EventDate > frmDate && x.EventDate < edDate);
+
+            return Json(eventList.ToList(), JsonRequestBehavior.AllowGet);
         }
 	}
 }
