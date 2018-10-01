@@ -13,7 +13,7 @@ namespace EventManagementSystem.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201810010535273_version1"; }
+            get { return "201810010755576_version1"; }
         }
         
         string IMigrationMetadata.Source

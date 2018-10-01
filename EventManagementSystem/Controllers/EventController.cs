@@ -22,7 +22,7 @@ namespace EventManagementSystem.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CreateEvent(Event eEvent)
+        public ActionResult CreateEvent(Event eEvent)   
         {
             eEvent.UserId = 1;
             eEvent.CreatedBy = "Nasir";
@@ -41,8 +41,8 @@ namespace EventManagementSystem.Controllers
             }
                 foreach (var ev in eventList)
                 {
-                    if ((eEvent.StartTime1 >= ev.StartTime && eEvent.StartTime1<ev.EndTime)
-                        || (eEvent.EndTime1 > ev.StartTime && eEvent.EndTime1<=ev.StartTime))
+                    if ((eEvent.StartTime1 >= ev.StartTime1 && eEvent.StartTime1<ev.EndTime1)
+                        || (eEvent.EndTime1 > ev.StartTime1 && eEvent.EndTime1<=ev.StartTime1))
                     {
                         msg = "Event Time conflicted";
                     }

@@ -85,7 +85,7 @@
             <label id="Name" class="control-label col-md-4"></label>
             <div class=" col-md-8">
                 <input type="button" value="Save" id="submit" class="btn btn-default" style="background-color: #4CAF50;color: white" />
-                <input type="button" id="Cancel" value="Cancel" class="btn btn-default" style="background-color: #FF0000; color: white" />
+                <input type="button" id="Cancel" value="Clear" class="btn btn-default" style="background-color: #FF0000; color: white" />
             </div>
         </div>
     </div>
@@ -160,13 +160,12 @@
                 var cno = $("#ContactNo1").val();
                 var ename = $("#EventName1").val();
                 var venue = $("#EventVenue1").val();
-                var time = $("#StartTime").val();
                 var startTime1 = $("#StartTime").val();
                 var endTime1 = $("#EndTime").val();
                 var Date = $("#EventDate").val();
 
-                var hour = parseInt(time.substr(0, 2));
-                var minute = parseInt(time.substr(3, 5));
+                var hour = parseInt(startTime1.substr(0, 2));
+                var minute = parseInt(startTime1.substr(3, 5));
                 var startTime = hour * 60 + minute;
 
                 hour = parseInt(endTime1.substr(0, 2));
@@ -179,7 +178,7 @@
 
                 if (startTime < endTime) {
 
-                    var jsonData = { OrganizerEmail: email, ContactNo: cno, EventName: ename, EventVenue: venue, StartTime: startTime1, StartTime1: startTime1, EndTime: endTime1, EndTime1: endTime1, EventDate: Date };
+                    var jsonData = { OrganizerEmail: email, ContactNo: cno, EventName: ename, EventVenue: venue, StartTime: startTime1, StartTime1: startTime, EndTime: endTime1, EndTime1: endTime, EventDate: Date };
 
                     $.ajax({
                         type: "POST",
@@ -189,6 +188,16 @@
                         dataType: "json",
                         success: function (data) {
                             $("#displayMsg").text(data);
+                            if (data==true) {
+                                $('#Name1').val('');
+                                $('#Email1').val('');
+                                $('#ContactNo1').val('');
+                                $('#EventVenue1').val('');
+                                $('#EventDate').val('');
+                                $('#StartTime').val('');
+                                $('#EndTime').val('');
+                                $('#EventName1').val('');
+                            }
 
                         }
                     });

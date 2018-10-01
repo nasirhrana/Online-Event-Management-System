@@ -28,16 +28,15 @@ namespace EventManagementSystem.Models
         [DataType(DataType.Date)]
         public DateTime EventDate { get; set; }
         [Required(ErrorMessage = "Please Enter Event Start Time")]
-        [DataType(DataType.Time)]
-        public double StartTime { get; set; }
-        [NotMapped]
-
+        
         public double StartTime1 { get; set; }
-        [Required(ErrorMessage = "Please Enter Event End Time")]
         [DataType(DataType.Time)]
-        public double EndTime { get; set; }
-        [NotMapped]
+        public string StartTime { get; set; }
+        [Required(ErrorMessage = "Please Enter Event End Time")]
+        
         public double EndTime1 { get; set; }
+        [DataType(DataType.Time)]
+        public string EndTime { get; set; }
 
         public string CreatedBy { get; set; }
         [DataType(DataType.DateTime)]

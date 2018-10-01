@@ -18,8 +18,10 @@ namespace EventManagementSystem.Migrations
                         OrganizerEmail = c.String(nullable: false),
                         ContactNo = c.String(nullable: false),
                         EventDate = c.DateTime(nullable: false),
-                        StartTime = c.Double(nullable: false),
-                        EndTime = c.Double(nullable: false),
+                        StartTime1 = c.Double(nullable: false),
+                        StartTime = c.String(),
+                        EndTime1 = c.Double(nullable: false),
+                        EndTime = c.String(),
                         CreatedBy = c.String(),
                         TimeOfCreation = c.DateTime(nullable: false),
                     })
