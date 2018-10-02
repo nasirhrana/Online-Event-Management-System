@@ -27,6 +27,8 @@ namespace EventManagementSystem.Models
         [Required(ErrorMessage = "Please Enter Event Date")]
         [DataType(DataType.Date)]
         public DateTime EventDate { get; set; }
+        [DataType(DataType.Date)]
+        public string Date { get; set; }
         [Required(ErrorMessage = "Please Enter Event Start Time")]
         
         public double StartTime1 { get; set; }

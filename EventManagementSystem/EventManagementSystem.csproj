@@ -165,9 +165,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810011501302_version1.cs" />
-    <Compile Include="Migrations\201810011501302_version1.Designer.cs">
-      <DependentUpon>201810011501302_version1.cs</DependentUpon>
+    <Compile Include="Migrations\201810020301573_version1.cs" />
+    <Compile Include="Migrations\201810020301573_version1.Designer.cs">
+      <DependentUpon>201810020301573_version1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EMSDbContext.cs" />
@@ -229,8 +229,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810011501302_version1.resx">
-      <DependentUpon>201810011501302_version1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810020301573_version1.resx">
+      <DependentUpon>201810020301573_version1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

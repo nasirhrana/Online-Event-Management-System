@@ -162,7 +162,7 @@
                 var venue = $("#EventVenue1").val();
                 var startTime1 = $("#StartTime").val();
                 var endTime1 = $("#EndTime").val();
-                var Date = $("#EventDate").val();
+                var date = $("#EventDate").val();
 
                 var hour = parseInt(startTime1.substr(0, 2));
                 var minute = parseInt(startTime1.substr(3, 5));
@@ -178,7 +178,7 @@
 
                 if (startTime < endTime) {
 
-                    var jsonData = { OrganizerEmail: email, ContactNo: cno, EventName: ename, EventVenue: venue, StartTime: startTime1, StartTime1: startTime, EndTime: endTime1, EndTime1: endTime, EventDate: Date };
+                    var jsonData = { OrganizerEmail: email, ContactNo: cno, EventName: ename, EventVenue: venue, StartTime: startTime1, StartTime1: startTime, EndTime: endTime1, EndTime1: endTime, EventDate: date, Date: date };
 
                     $.ajax({
                         type: "POST",

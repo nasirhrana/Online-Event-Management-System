@@ -18,6 +18,7 @@ namespace EventManagementSystem.Migrations
                         OrganizerEmail = c.String(nullable: false),
                         ContactNo = c.String(nullable: false),
                         EventDate = c.DateTime(nullable: false),
+                        Date = c.String(),
                         StartTime1 = c.Double(nullable: false),
                         StartTime = c.String(),
                         EndTime1 = c.Double(nullable: false),

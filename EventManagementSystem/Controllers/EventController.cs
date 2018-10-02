@@ -65,7 +65,7 @@ namespace EventManagementSystem.Controllers
         }
         public ActionResult ShowDateWiseEventByRange(DateTime frmDate, DateTime edDate)
         {
-            var eventList = dbContext.Events.Where(x => x.EventDate > frmDate && x.EventDate < edDate);
+            var eventList = dbContext.Events.Where(x => x.EventDate >= frmDate && x.EventDate <= edDate);
 
             return Json(eventList.ToList(), JsonRequestBehavior.AllowGet);
         }

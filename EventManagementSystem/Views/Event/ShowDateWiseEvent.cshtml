@@ -10,9 +10,14 @@
     <input type="date" id="startDate" />
     <label>End Time</label>
     <input type="date" id="endDate" />
-    <input type="button" id="Show" value="Show" class="btn btn-default" style="background-color: #FF0000; color: white" />
+    <input type="button" id="Show" value="Show" class="btn btn-default" style="background-color: #4CAF50; color: white" />
 </form>
 <br />
+<div class="amount">
+    <label style="color: #4CAF50">Total Event</label>
+    <input type="text" name="amount" id="amount" value="" disabled="disabled" />
+</div>
+<br/>
 
 
 <form>
@@ -35,6 +40,7 @@
 <h3 style="text-align: center"><label id="displayMsg"></label> </h3>
 
 
+
 @section scripts
 {
 
@@ -42,6 +48,7 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
     <script>
         $(document).ready(function () {
+            
             $('#eventForm').validate({
                 rules: {
                     startDate: "Required",
@@ -68,8 +75,9 @@
                     data: JSON.stringify(jsonData),
                     dataType: "json",
                     success: function (data) {
+                        $('#amount').val(data.length);
                         $.each(data, function (key, value) {
-                            $("#StudentTableBody").append('<tr><td>' + value.EventName + '</td><td>' + value.EventVenue + '</td><td>' + value.EventDate.converters + '</td><td>' + value.StartTime + '</td><td>' + value.EndTime + '</td></tr>');
+                            $("#StudentTableBody").append('<tr><td>' + value.EventName + '</td><td>' + value.EventVenue + '</td><td>' + value.Date + '</td><td>' + value.StartTime + '</td><td>' + value.EndTime + '</td></tr>');
                         });
                     }
 
