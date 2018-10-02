@@ -13,7 +13,7 @@
     <input type="button" id="Show" value="Show" class="btn btn-default" style="background-color: #4CAF50; color: white" />
 </form>
 <br />
-<div class="amount">
+<div class="amount" id="aaa">
     <label style="color: #4CAF50">Total Event</label>
     <input type="text" name="amount" id="amount" value="" disabled="disabled" />
 </div>
@@ -21,7 +21,7 @@
 
 
 <form>
-    <table class="table table-striped table-bordered" id="tableId">
+    <table class="table table-striped table-bordered table-hover" id="tableId">
         <thead>
             <tr>
                 <th>Event Name</th>
@@ -48,6 +48,8 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
     <script>
         $(document).ready(function () {
+            $("#tableId").hide();
+            $("#aaa").hide();
             
             $('#eventForm').validate({
                 rules: {
@@ -55,7 +57,10 @@
                     endDate: "Required",
         }
             });
-            $('#Show').click(function() {
+            $('#Show').click(function () {
+                $("#tableId").show();
+                $("#aaa").show();
+                $("#StudentTableBody").empty();
                 var fromDate = $('#startDate').val();
                 var toDate = $('#endDate').val();
                 var startdate = Date.parse(fromDate);
