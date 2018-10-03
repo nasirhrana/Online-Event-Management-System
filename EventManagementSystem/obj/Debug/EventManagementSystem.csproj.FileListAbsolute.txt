@@ -111,3 +111,5 @@ C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\
 C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\obj\Debug\EventManagementSystem.pdb
 C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\obj\Debug\EventManagementSystem.Migrations.version1.resources
 C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\obj\Debug\EventManagementSystem.csproj.GenerateResource.Cache
+C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\obj\Debug\EventManagementSystem.Migrations.version2.resources
+C:\Users\nasir\Desktop\EMS\Online-Event-Management-System\EventManagementSystem\obj\Debug\EventManagementSystem.Migrations.visitorregistration.resources

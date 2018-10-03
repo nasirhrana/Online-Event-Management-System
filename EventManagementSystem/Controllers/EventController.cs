@@ -69,5 +69,36 @@ namespace EventManagementSystem.Controllers
 
             return Json(eventList.ToList(), JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult ShowEventWiseReport()
+        {
+            ViewBag.EventList = dbContext.Events.Where(m => m.EventDate < DateTime.Now);
+
+            return View();
+        }
+
+        public ActionResult GetEventVisitorByEventId(int eventID)
+        {
+            var visitorList = dbContext.VisitorRegistrations.Where(m => m.EventId == eventID).ToList();
+            return Json(visitorList, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult IsVisitorEmailExist(string email)
+        {
+            bool isExist = false;
+            if (dbContext.VisitorRegistrations.Any(o => o.VisitorEmail == email))
+            {
+                isExist = true;
+            }
+            return Json(!isExist, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult IsVisitorContactNoExist(string contactNo)
+        {
+            bool isExist = false;
+            if (dbContext.VisitorRegistrations.Any(o => o.VisitorContactNo == contactNo))
+            {
+                isExist = true;
+            }
+            return Json(!isExist, JsonRequestBehavior.AllowGet);
+        }
 	}
 }

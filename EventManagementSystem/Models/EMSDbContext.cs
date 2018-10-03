@@ -11,6 +11,7 @@ namespace EventManagementSystem.Models
         public DbSet<User> Users { get; set; }
         public DbSet<UserType> UserTypes { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<VisitorRegistration> VisitorRegistrations { get; set; }
 
     }
 }
