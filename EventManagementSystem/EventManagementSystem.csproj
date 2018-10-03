@@ -227,6 +227,7 @@
     <Content Include="Views\Event\CreateEvent.cshtml" />
     <Content Include="Views\Event\ShowDateWiseEvent.cshtml" />
     <Content Include="Views\Event\ShowEventWiseReport.cshtml" />
+    <Content Include="Views\Event\ShowEventReportGenderWise.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

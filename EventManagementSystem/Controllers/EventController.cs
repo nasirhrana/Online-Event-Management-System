@@ -100,5 +100,18 @@ namespace EventManagementSystem.Controllers
             }
             return Json(!isExist, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult ShowEventReportGenderWise()
+        {
+            return View();
+        }
+
+        public ActionResult ShowDateWiseEventReportByGender(DateTime frmDate, DateTime edDate, string gender)
+        {
+            var eventReportByGender =
+                dbContext.VisitorRegistrations.Where(
+                    m => m.Event.EventDate >= frmDate && m.Event.EventDate <= edDate && m.Gender == gender).ToList();
+            return Json(eventReportByGender, JsonRequestBehavior.AllowGet);
+        }
 	}
 }
