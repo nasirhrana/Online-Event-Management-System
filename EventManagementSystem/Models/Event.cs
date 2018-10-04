@@ -45,7 +45,7 @@ namespace EventManagementSystem.Models
         public DateTime TimeOfCreation { get; set; }
 
         public User User { get; set; }
-        public List<VisitorRegistration> VisitorRegistrations { get; set; } 
+        public List<VisitorRegistration> VisitorRegistrations { get; set; }
 
 
     }

@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EventManagementSystem.Models;
-using EventManagementSystem.ViewModel;
 
 namespace EventManagementSystem.Controllers
 {
@@ -105,13 +109,14 @@ namespace EventManagementSystem.Controllers
         {
             return View();
         }
-
         public ActionResult ShowDateWiseEventReportByGender(DateTime frmDate, DateTime edDate, string gender)
         {
-            var eventReportByGender =
-                dbContext.VisitorRegistrations.Where(
-                    m => m.Event.EventDate >= frmDate && m.Event.EventDate <= edDate && m.Gender == gender).ToList();
-            return Json(eventReportByGender, JsonRequestBehavior.AllowGet);
+            return
+                Json(
+                    dbContext.Events.Include(x => x.VisitorRegistrations).Where(s => s.EventDate >= frmDate && s.EventDate <= edDate && s.VisitorRegistrations.FirstOrDefault().Gender == gender)
+                        .Select(s => new { EventName = s.EventName, Eventdte = s.Date, Count = s.VisitorRegistrations.Count, Count1 = s.VisitorRegistrations.FirstOrDefault().DOB.CompareTo(Convert.ToInt32(DateTime.Today.ToString("yyyyMMdd")) - Convert.ToInt32(s.VisitorRegistrations.FirstOrDefault().DateOfBirth.ToString("yyyyMMdd"))<=25)})
+                        .ToList(), JsonRequestBehavior.AllowGet);
         }
+
 	}
 }

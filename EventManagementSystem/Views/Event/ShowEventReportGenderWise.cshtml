@@ -79,8 +79,9 @@
                         data: JSON.stringify(jsonData),
                         dataType: "json",
                         success: function (data) {
+                           // alert(data[0].Eventdte);
                             $.each(data, function (key, value) {
-                                $("#EventTableBody").append('<tr><td>' + value.EventName + '</td><td>' + value.Date + '</td>');
+                                $("#EventTableBody").append('<tr><td>' + value.EventName + '</td><td>' + value.Eventdte + '</td><td>' + value.Count + '</td><td>' + value.Count1 + '</td>');
                             });
                         }
 

@@ -7,13 +7,13 @@ namespace EventManagementSystem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class version2 : IMigrationMetadata
+    public sealed partial class version1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(version2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(version1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201810030448188_version2"; }
+            get { return "201810041658189_version1"; }
         }
         
         string IMigrationMetadata.Source

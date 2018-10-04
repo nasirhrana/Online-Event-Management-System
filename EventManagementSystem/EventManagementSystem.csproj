@@ -161,21 +161,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\ExecutiveController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810020301573_version1.cs" />
-    <Compile Include="Migrations\201810020301573_version1.Designer.cs">
-      <DependentUpon>201810020301573_version1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810030448188_version2.cs" />
-    <Compile Include="Migrations\201810030448188_version2.Designer.cs">
-      <DependentUpon>201810030448188_version2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810030456526_visitor registration.cs" />
-    <Compile Include="Migrations\201810030456526_visitor registration.Designer.cs">
-      <DependentUpon>201810030456526_visitor registration.cs</DependentUpon>
+    <Compile Include="Migrations\201810041658189_version1.cs" />
+    <Compile Include="Migrations\201810041658189_version1.Designer.cs">
+      <DependentUpon>201810041658189_version1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EMSDbContext.cs" />
@@ -186,6 +180,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\EventViewModel.cs" />
+    <Compile Include="ViewModel\GenderWiseEventViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -228,6 +223,12 @@
     <Content Include="Views\Event\ShowDateWiseEvent.cshtml" />
     <Content Include="Views\Event\ShowEventWiseReport.cshtml" />
     <Content Include="Views\Event\ShowEventReportGenderWise.cshtml" />
+    <Content Include="Views\Shared\Executive.cshtml" />
+    <Content Include="Views\Executive\VisitorRegistration.cshtml" />
+    <Content Include="Views\Event\EventIndex.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Home.cshtml" />
+    <Content Include="Views\Executive\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -240,14 +241,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810020301573_version1.resx">
-      <DependentUpon>201810020301573_version1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810030448188_version2.resx">
-      <DependentUpon>201810030448188_version2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810030456526_visitor registration.resx">
-      <DependentUpon>201810030456526_visitor registration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810041658189_version1.resx">
+      <DependentUpon>201810041658189_version1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

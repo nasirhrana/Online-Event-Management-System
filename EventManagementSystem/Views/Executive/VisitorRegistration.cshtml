@@ -1,0 +1,135 @@
+﻿@model EventManagementSystem.Models.VisitorRegistration
+
+@{
+    ViewBag.Title = "VisitorRegistration";
+    Layout = "~/Views/Shared/Executive.cshtml";
+}
+
+<h2 style="text-align: center; color: green">Visitor Registration</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <label id="Name" class="control-label col-md-4"></label>
+            <div class="col-md-8">
+                @Html.DropDownList("EventId", null, "---Select Event---", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EventId)
+            </div>
+        </div>
+        <div class="form-group">
+            <label id="Name" class="control-label col-md-4"></label>
+            <div class="col-md-8">
+                <input type="text" name="venue" id="venue" class="form-control" placeholder="Event Venue" disabled="disabled" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label id="Name" class="control-label col-md-4"></label>
+            <div class="col-md-8">
+                <input type="text" name="date" id="date" class="form-control" placeholder="Event Date" disabled="disabled" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label id="Name" class="control-label col-md-4"></label>
+            <div class="col-md-8">
+                <input type="text" name="startTime" id="startTime" class="form-control" placeholder=" Start Time" disabled="disabled" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label id="Name" class="control-label col-md-4"></label>
+            <div class="col-md-8">
+                <input type="text" name="endTime" id="endTime" class="form-control" placeholder="End Time" disabled="disabled" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label id="Name" class="control-label col-md-4"></label>
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.VisitorName, new { @id = "Name1", placeholder = " Enter Visitor Name", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.VisitorName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="Name" class="control-label col-md-4"></label>
+            <div class="col-md-8">
+                @Html.TextBoxFor(m => m.VisitorEmail, new { @id = "Email1", placeholder = "  Enter Visitor  Email", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.VisitorEmail)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="Name" class="control-label col-md-4"></label>
+            <div class="col-md-8">
+               @Html.TextBoxFor(m => m.VisitorContactNo, new { @id = "ContactNo1", placeholder = "  Enter Visitor Contact No", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.VisitorContactNo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="Name" class="control-label col-md-4"></label>
+            <div class="col-md-8">
+                <input type="date" name="DateOfBirth" id="DateOfBirth" class="form-control" placeholder="Date of Birth Date" />
+                @Html.ValidationMessageFor(model => model.DateOfBirth)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label id="Name" class="control-label col-md-4"></label>
+            <div class="col-md-8">
+                @Html.RadioButtonFor(m => m.Gender, "Male")Male
+                @Html.RadioButtonFor(m => m.Gender, "Female")Female
+                @Html.ValidationMessageFor(model => model.Gender)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label id="Name" class="control-label col-md-4"></label>
+            <div class="col-md-8">
+                <input type="submit" value="Create" class="btn btn-default" style="background-color: #4CAF50; color: white" />
+            </div>
+        </div>
+    </div>
+}
+<h3 style="text-align: center; color: gree">
+    @ViewBag.msg
+</h3>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $('#EventId').change(function () {
+                $('#venue').empty();
+                $('#date').empty();
+                $('#startTime').empty();
+                $('#endTime').empty();
+                var eventId = $('#EventId').val();
+                var jsonData = {eId:eventId };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("GetEventById", "Executive")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(jsonData),
+                    dataType: "json",
+                    success: function (data) {
+
+                        $('#venue').val(data[0].EventVenue);
+                        $('#date').val(data[0].Date);
+                        $('#startTime').val(data[0].StartTime);
+                        $('#endTime').val(data[0].EndTime);
+
+                    }
+                });
+            });
+        });
+    </script>
+}

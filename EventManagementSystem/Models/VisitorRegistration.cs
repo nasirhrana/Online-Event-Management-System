@@ -34,7 +34,9 @@ namespace EventManagementSystem.Models
         [Required]
         public string TicketNo { get; set; }
         [Required]
-        public string TimeOfRegistration { get; set; }
+        [DataType(DataType.Time)]
+        public DateTime TimeOfRegistration { get; set; }
         public Event Event { get; set; }
+        
     }
 }

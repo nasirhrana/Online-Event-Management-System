@@ -54,15 +54,37 @@ namespace EventManagementSystem.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
+            CreateTable(
+                "dbo.VisitorRegistrations",
+                c => new
+                    {
+                        VisitorId = c.Int(nullable: false, identity: true),
+                        VisitorName = c.String(nullable: false),
+                        VisitorEmail = c.String(nullable: false),
+                        VisitorContactNo = c.String(nullable: false),
+                        DateOfBirth = c.DateTime(nullable: false),
+                        DOB = c.String(),
+                        Gender = c.String(nullable: false),
+                        EventId = c.Int(nullable: false),
+                        TicketNo = c.String(nullable: false),
+                        TimeOfRegistration = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.VisitorId)
+                .ForeignKey("dbo.Events", t => t.EventId, cascadeDelete: true)
+                .Index(t => t.EventId);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.VisitorRegistrations", "EventId", "dbo.Events");
             DropForeignKey("dbo.Users", "UserTypeId", "dbo.UserTypes");
             DropForeignKey("dbo.Events", "UserId", "dbo.Users");
+            DropIndex("dbo.VisitorRegistrations", new[] { "EventId" });
             DropIndex("dbo.Users", new[] { "UserTypeId" });
             DropIndex("dbo.Users", new[] { "Email" });
             DropIndex("dbo.Events", new[] { "UserId" });
+            DropTable("dbo.VisitorRegistrations");
             DropTable("dbo.UserTypes");
             DropTable("dbo.Users");
             DropTable("dbo.Events");
