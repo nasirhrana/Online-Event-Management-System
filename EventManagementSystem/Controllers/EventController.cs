@@ -114,7 +114,7 @@ namespace EventManagementSystem.Controllers
             return
                 Json(
                     dbContext.Events.Include(x => x.VisitorRegistrations).Where(s => s.EventDate >= frmDate && s.EventDate <= edDate && s.VisitorRegistrations.FirstOrDefault().Gender == gender)
-                        .Select(s => new { EventName = s.EventName, Eventdte = s.Date, Count = s.VisitorRegistrations.Count, Count1 = s.VisitorRegistrations.FirstOrDefault().DOB.CompareTo(Convert.ToInt32(DateTime.Today.ToString("yyyyMMdd")) - Convert.ToInt32(s.VisitorRegistrations.FirstOrDefault().DateOfBirth.ToString("yyyyMMdd"))<=25)})
+                        .Select(s => new { EventName = s.EventName, Eventdte = s.Date, Count = s.VisitorRegistrations.Count})
                         .ToList(), JsonRequestBehavior.AllowGet);
         }
 
