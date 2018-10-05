@@ -14,12 +14,21 @@ namespace EventManagementSystem.Controllers
         private EMSDbContext dbContext = new EMSDbContext();
         public ActionResult UserIndex()
         {
-
+            if (Session["Id"] == null)
+            {
+                return RedirectToAction("Login", "Home")
+                ;
+            }
             return View();
         }
         [HttpGet]
         public ActionResult CreateUser()
         {
+            if (Session["Id"] == null)
+            {
+                return RedirectToAction("Login", "Home")
+                ;
+            }
             ViewBag.UserTypeId = new SelectList(dbContext.UserTypes, "Id", "UserTypeName");
             return View();
         }

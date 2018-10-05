@@ -14,11 +14,21 @@ namespace EventManagementSystem.Controllers
         private EMSDbContext dbContext=new EMSDbContext();
         public ActionResult Index()
         {
+            if (Session["Id"] == null)
+            {
+                return RedirectToAction("Login", "Home")
+                ;
+            }
             return View();
         }
         [HttpGet]
         public ActionResult VisitorRegistration()
         {
+            if (Session["Id"] == null)
+            {
+               return RedirectToAction("Login", "Home")
+                ;
+            }
             ViewBag.EventId = new SelectList(dbContext.Events, "EventId", "EventName");
             return View();
         }

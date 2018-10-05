@@ -19,18 +19,28 @@ namespace EventManagementSystem.Controllers
         private EMSDbContext dbContext = new EMSDbContext();
         public ActionResult EventIndex()
         {
+            if (Session["Id"]== null)
+            {
+                RedirectToAction("Login", "Home")
+                ;
+            }
             return View();
         }
         [HttpGet]
         public ActionResult CreateEvent()
         {
+            if (Session["Id"] == null)
+            {
+                RedirectToAction("Login", "Home")
+                ;
+            }
             return View();
         }
         [HttpPost]
         public ActionResult CreateEvent(Event eEvent)   
         {
-            eEvent.UserId = 1;
-            eEvent.CreatedBy = "Nasir";
+            eEvent.UserId = (int) Session["Id"];
+            eEvent.CreatedBy = (string) Session["user"];
             eEvent.TimeOfCreation = DateTime.Now;
             bool isExist = false;
             var msg = "";
@@ -65,6 +75,11 @@ namespace EventManagementSystem.Controllers
 
         public ActionResult ShowDateWiseEvent()
         {
+            if (Session["Id"] == null)
+            {
+                return RedirectToAction("Login", "Home")
+                ;
+            }
             return View();
         }
         public ActionResult ShowDateWiseEventByRange(DateTime frmDate, DateTime edDate)
@@ -76,6 +91,11 @@ namespace EventManagementSystem.Controllers
 
         public ActionResult ShowEventWiseReport()
         {
+            if (Session["Id"] == null)
+            {
+                return RedirectToAction("Login", "Home")
+                ;
+            }
             ViewBag.EventList = dbContext.Events.Where(m => m.EventDate < DateTime.Now);
 
             return View();
@@ -107,6 +127,11 @@ namespace EventManagementSystem.Controllers
 
         public ActionResult ShowEventReportGenderWise()
         {
+            if (Session["Id"] == null)
+            {
+                return RedirectToAction("Login", "Home")
+                ;
+            }
             return View();
         }
         public ActionResult ShowDateWiseEventReportByGender(DateTime frmDate, DateTime edDate, string gender)
