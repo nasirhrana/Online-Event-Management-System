@@ -21,7 +21,7 @@ namespace EventManagementSystem.Controllers
         {
             if (Session["Id"]== null)
             {
-                RedirectToAction("Login", "Home")
+              return  RedirectToAction("Login", "Home")
                 ;
             }
             return View();
@@ -31,7 +31,7 @@ namespace EventManagementSystem.Controllers
         {
             if (Session["Id"] == null)
             {
-                RedirectToAction("Login", "Home")
+                return RedirectToAction("Login", "Home")
                 ;
             }
             return View();
