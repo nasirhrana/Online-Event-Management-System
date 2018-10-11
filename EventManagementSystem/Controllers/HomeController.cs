@@ -3,28 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EventManagementSystem.Models;
 
 namespace EventManagementSystem.Controllers
 {
     public class HomeController : Controller
     {
+        //
+        // GET: /Home/
+        private EMSDbContext dbContext=new EMSDbContext();
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult About()
+        [HttpGet]
+        public ActionResult Login()
         {
-            ViewBag.Message = "Your application description page.";
-
+            if (Session["Id"] != null)
+            {
+                Session["Id"] = null;
+                ;
+            }
             return View();
         }
-
-        public ActionResult Contact()
+        [HttpPost]
+        public ActionResult Login(LoginModel aLoginModel)
         {
-            ViewBag.Message = "Your contact page.";
-
+            var status = dbContext.Users.Where(m => m.Email == aLoginModel.Email);
+            if (status.Count()>0)
+            {
+                var name = status.FirstOrDefault().Name;
+                Session["Id"] = status.FirstOrDefault().Id;
+                Session["user"] = name;
+                Session["status"] = true;
+                Session["UserType"] = status.FirstOrDefault().UserTypeId;
+                if (status.FirstOrDefault().UserTypeId==1)
+                {
+                    return RedirectToAction("EventIndex", "Event");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Executive");
+                }
+                
+            }
             return View();
         }
-    }
+        public ActionResult LogOut()
+        {
+            Session["Id"] = null;
+            return RedirectToAction("Login", "Home");
+
+        }
+	}
 }
